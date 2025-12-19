@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harith Rafea | AI Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* إعدادات التصميم */
+        :root {
+            --primary: #2563eb;       /* أزرق احترافي */
+            --dark: #0f172a;          /* كحلي غامق للنصوص */
+            --light: #f8fafc;         /* خلفية فاتحة */
+            --white: #ffffff;
+            --gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* 1. القائمة العلوية */
+        nav {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* 2. قسم التعريف (Hero) */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 2rem;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .hero h2 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #1d4ed8;
+        }
+
+        /* 3. الأقسام العامة */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* 4. كروت المعلومات */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #f1f5f9;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card i {
+            color: var(--primary);
+        }
+
+        /* 5. المهارات */
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* 6. التعليم */
+        .edu-item {
+            border-left: 3px solid var(--primary);
+            padding-left: 1.5rem;
+        }
+
+        .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* 7. التواصل */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--dark);
+            background: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            color: var(--gray);
+            border-top: 1px solid #f1f5f9;
+        }
+
+        /* للموبايل */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            section { padding: 3rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">HARITH.AI</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="content">
+            <img src="5343761790036284422_121.jpg" alt="Harith Rafea" class="profile-img">
+            <h1>Harith Rafea Abdullah</h1>
+            <h2>Computer Science Student & AI Specialist</h2>
+            <p>
+                Motivated student at the University of Mosul, specializing in Artificial Intelligence. 
+                Passionate about Machine Learning, Deep Learning, and building data-driven solutions.
+            </p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fas fa-code"></i> Programming</h3>
+                <div class="skills-wrapper">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-brain"></i> AI & Data</h3>
+                <div class="skills-wrapper">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Pandas</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-tools"></i> Tools</h3>
+                <div class="skills-wrapper">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Data Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" style="background: #ffffff;">
+        <h2 class="section-title">Education</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <div class="edu-item">
+                <h3>B.Sc. in Computer Science</h3>
+                <p style="color: var(--primary); font-weight: 600;">University of Mosul</p>
+                <p class="date">2024 - 2028</p>
+                <p style="margin-top: 1rem; color: var(--gray);">
+                    College of Computer Science and Mathematics. <br>
+                    <strong>Major:</strong> Artificial Intelligence (AI).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Data Pattern Recognition System</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem;">
+                    Constructed and trained a Machine Learning model using Scikit-learn to classify datasets. 
+                    Applied advanced data preprocessing to enhance classification accuracy.
+                </p>
+                <div class="skills-wrapper">
+                    <span class="skill-tag" style="background: var(--light); color: var(--dark);">Machine Learning</span>
+                    <span class="skill-tag" style="background: var(--light); color: var(--dark);">Python</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Portfolio Website</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem;">
+                    Designed and developed a professional personal website to showcase academic achievements and skills.
+                </p>
+                <div class="skills-wrapper">
+                    <span class="skill-tag" style="background: var(--light); color: var(--dark);">Web Design</span>
+                    <span class="skill-tag" style="background: var(--light); color: var(--dark);">HTML/CSS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-links">
+            <a href="mailto:harith.24cs0104@student.uomosul.edu.iq" class="contact-item">
+                <i class="fas fa-envelope fa-lg"></i>
+                <span>Send Email</span>
+            </a>
+            <a href="tel:07857496761" class="contact-item">
+                <i class="fas fa-phone fa-lg"></i>
+                <span>07857496761</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Harith Rafea Abdullah. All Rights Reserved.</p>
+        <p style="font-size: 0.85rem; margin-top: 5px;">Mosul, Iraq</p>
+    </footer>
+
+</body>
+</html>
